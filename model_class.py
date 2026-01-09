@@ -13,7 +13,6 @@ from timm.models import create_model
 
 
 
-
 #qkformer
 class Token_QK_Attention(nn.Module):
     def __init__(self, dim, num_heads=8,Threshold=1.,qkv_bias=False, qk_scale=None, attn_drop=0., proj_drop=0., sr_ratio=1):
