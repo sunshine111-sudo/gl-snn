@@ -337,7 +337,7 @@ class localBlock(nn.Module):
         self.bn1 = nn.BatchNorm2d(embed_dims)
 
         self.proj_lif1 = MultiStepLIFNode(tau=2.0,v_threshold=Threshold, detach_reset=True, backend='cupy')
-        self.conv3d = nn.Conv3d(embed_dims, embed_dims, kernel_size=(1, 1, 3), padding=(0, 0, 1),bias=False)
+        self.conv3d = nn.Conv3d(embed_dims, embed_dims, kernel_size=(3, 1, 1), padding=(1, 0, 0),bias=False)
         self.bn2 = nn.BatchNorm3d(embed_dims)
         self.proj_lif2 = MultiStepLIFNode(tau=2.0,v_threshold=Threshold, detach_reset=True, backend='cupy')
         self.proj_conv = nn.Conv2d(embed_dims*2,embed_dims , kernel_size=1, stride=1,  bias=False)
